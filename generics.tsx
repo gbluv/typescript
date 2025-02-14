@@ -1,3 +1,18 @@
+type User = {
+    firstName: string,
+    lastName: string
+}
+
+type TActionTypes = `user-${keyof User}`;
+
+type TGenericActionTypes<T, K extends keyof T & string> = {
+    type: `user-${K}`,
+    payload: T[K]
+} 
+
+
+/* Generic functions */
+
 type LinkNode<T> = {
   value: T,
   next?:LinkNode<T>
